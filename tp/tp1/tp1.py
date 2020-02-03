@@ -11,10 +11,10 @@ import librosa.display
 import librosa
 import sounddevice as sd
 
-x, fe = librosa.load('music.wav')
+x, fe = librosa.load('../ressources/SNCF.wav')
 plt.figure(figsize=(14, 5))
 librosa.display.waveplot(x, sr=fe)
-librosa.load('music.wav', mono=False)
+librosa.load('../ressources/doM.wav', mono=False)
 plt.title('doM')
 plt.show()
 n=len(x)
