@@ -28,16 +28,20 @@ plt.title('280Hz et 500Hz,fe=8000Hz')
 x, fe = librosa.load('ressources/PIANO.wav')
 plt.figure(figsize=(14, 5))
 librosa.display.waveplot(x, sr=fe)
-plt.title('SNCF')
+plt.title('')
 plt.show()
-#fe/=16
+fe/=16
 n=len(x)
 t = np.linspace(0, n/fe, n, endpoint=False)
 s = 0.75*np.cos(2*np.pi*440*t) 
 plt.plot(t,x)
 plt.plot(np.abs(np.fft.fft(s)));
 Sdb = librosa.amplitude_to_db(abs(s))
-librosa.display.specshow(Sdb, sr=fe, x_axis='time', y_axis='hz')
+
+S = np.abs(librosa.stft(s))
+Sdb = librosa.amplitude_to_db(abs(S))
+#librosa.display.specshow(Sdb, sr=fe, x_axis='time', y_axis='hz')
+#librosa.display.specshow(Sdb, sr=fe, x_axis='time', y_axis='hz')
 
 sd.play(x,fe)
 status = sd.wait()
