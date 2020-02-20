@@ -30,7 +30,7 @@ plt.figure(figsize=(14, 5))
 librosa.display.waveplot(x, sr=fe)
 plt.title('')
 plt.show()
-fe/=16
+fe/=2
 n=len(x)
 t = np.linspace(0, n/fe, n, endpoint=False)
 s = 0.75*np.cos(2*np.pi*440*t) 
